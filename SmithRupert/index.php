@@ -14,9 +14,9 @@
   	<a name="top"></a>
    	<div id="title">Data Visualization for Wayland Project</div>
     <div id="pageJumps">
-      <a href="#topPlusOne">Jump to Part 1</a>
-      <a href="#topPlusTwo">Jump to Part 2</a>
-      <a href="#bottom">Jump to bottom</a>
+      <?php
+        include 'pageLinks.php';
+      ?>
     </div>
     <br>
     <button id="welcomeButton" type="button">Click here</button>
@@ -64,9 +64,9 @@
   	<a name="topPlusOne"></a>
   	<div id="partOne">Part One</div>
     <div id="pageJumps">
-      <a href="#top">Jump to top</a>
-      <a href="#topPlusTwo">Jump to Part 2</a>
-      <a href="#bottom">Jump to bottom</a>
+      <?php
+        include 'pageLinks.php';
+      ?>
     </div>    
     <br>
     <br>
@@ -112,9 +112,9 @@
   	<a name="topPlusTwo"></a>
   	<div id="partTwo">Part two</div>
     <div id="pageJumps">
-      <a href="#top">Jump to top</a>
-      <a href="#topPlusOne">Jump to Part 1</a>
-      <a href="#bottom">Jump to bottom</a>
+      <?php
+        include 'pageLinks.php';
+      ?>
     </div> 
     <br>
     <br>
@@ -160,9 +160,9 @@
  	<a name="bottom"></a>
   	<div id="partTwo">This is the display area for the bottom</div>
     <div id="pageJumps">
-      <a href="#top">Jump to top</a>
-      <a href="#topPlusOne">Jump to Part 1</a>
-      <a href="#topPlusTwo">Jump to Part 2</a>
+      <?php
+        include 'pageLinks.php';
+      ?>
     </div>
   	<div></div>
   </body>
