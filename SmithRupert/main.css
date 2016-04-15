@@ -1,0 +1,14 @@
+html {
+  font-family: 'helvetica', sans-serif; 
+}
+
+body {
+  background-color: gray;
+}
+
+#pageJumps {
+	font-family: furore;
+	font-size: 22px;
+	text-align: center;
+}
+
