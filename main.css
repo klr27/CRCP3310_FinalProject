@@ -6,6 +6,12 @@ body {
   background-color: gray;
 }
 
+#example {
+	width: 100;
+	height: 100;
+	color: blue;
+}
+
 #pageJumps {
 	font-family: furore;
 	font-size: 22px;
