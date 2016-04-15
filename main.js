@@ -16,5 +16,6 @@ var sampleSVG = d3.select("example")
         .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
         .on("mouseout", function(){d3.select(this).style("fill", "white");});
     
+function drawViz() {}
 
 window.addEventListener('load', drawViz, false );
