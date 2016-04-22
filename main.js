@@ -1,6 +1,11 @@
 //javascript
 var xArray = [100, 200, 300, 400, 500];
 var yArray = [40, 70, 20, 80, 40];
+var data = Papa.parse("foo.csv", {
+    complete: function(results) {
+        console.log(results);
+    }
+});
 
 var sampleSVG = d3.select("#example")
         .append("svg")
@@ -17,7 +22,8 @@ var sampleSVG = d3.select("#example")
         //.on("mouseout", function(){d3.select(this).style("fill", "white");});
     
 function drawViz() {
-   $( "#result" ).load( "https://cgit.freedesktop.org/wayland/wayland/log/);
+   document.getElementById("example").innerHTML = xArray[0];
+   document.getElementById("result").innerHTML = data[2];
 }
 
 window.addEventListener('load', drawViz, false );
