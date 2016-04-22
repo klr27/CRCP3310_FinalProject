@@ -8,7 +8,7 @@ var sampleSVG = d3.select("#example")
         .attr("height", 100);    
 
     sampleSVG.append("circle")
-        .style("stroke", "red")
+        .style("stroke", "lightblue")
         .style("fill", "blue")
         .attr("r", 40)
         .attr("cx", 50)
@@ -16,6 +16,8 @@ var sampleSVG = d3.select("#example")
         //.on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
         //.on("mouseout", function(){d3.select(this).style("fill", "white");});
     
-function drawViz() {}
+function drawViz() {
+   $( "#result" ).load( "https://cgit.freedesktop.org/wayland/wayland/log/);
+}
 
 window.addEventListener('load', drawViz, false );
