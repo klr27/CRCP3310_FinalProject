@@ -1,6 +1,9 @@
 //javascript
 var xArray = [100, 200, 300, 400, 500];
 var yArray = [40, 70, 20, 80, 40];
+
+var nameArray = [];
+
 //var data = Papa.parse("foo.csv", {
 //    complete: function(results) {
 //        console.log("Finished", results.data);
@@ -8,10 +11,11 @@ var yArray = [40, 70, 20, 80, 40];
 //});
 
 d3.text("foo2.csv", function(data) {
+
 var parsedCSV = d3.csv.parseRows(data);
 
 var container = d3.select("body")
-                    .append("table")
+                    .append("theTable")
                     .selectAll("tr")
                         .data(parsedCSV).enter()
                         .append("tr")
@@ -34,7 +38,7 @@ var sampleSVG = d3.select("#example")
         .attr("cy", 50);
         //.on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
         //.on("mouseout", function(){d3.select(this).style("fill", "white");});
-    
+
 function drawViz() {
    document.getElementById("example").innerHTML = xArray[0];
 }
