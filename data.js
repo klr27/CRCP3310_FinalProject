@@ -24,6 +24,7 @@ var data = d3.csv.parseRows(CSV);
 //with name and default values for insertions and deletions as 0
 //ideally each new user would be added to an array of User objects
 
+
 //then with each user we want to traverse data and add
 //insertions and deletions to User object
 //with these we can find total changes for each user easily 
@@ -34,5 +35,23 @@ var data = d3.csv.parseRows(CSV);
 //of insertions and deletions based on year and month
 //perhaps this all gets encapsulated into insertion and deletion 
 //object arrays within a User object????
+
+//Example/Idea
+//for (var i=0; i<data.length, i++){
+	//for (var j=0; j<users.length, j++){
+		//if (users[j].name === data[i,USER]) {
+
+			//get inserts and convert from string to number
+			//add to users[j].insertions (should probably rethink some var names)
+			//get delets and convert from string to number
+			//add to users[j].deletions
+			//get insert/delete year and month (can later add in day/time if we want)
+			//create new insert and delete objects in 
+			//users[j].inserts and user[j].deletes
+			
+
+		//}
+	//}
+//}
 
 
