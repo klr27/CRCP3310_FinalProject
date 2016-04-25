@@ -45,6 +45,46 @@ var svg = d3.select("body").append("svg")
 d3.csv("data.csv", type, function(error, data) {
   if (error) throw error;
 
+// Added April 25 
+// builds 4 arrays:
+// puts a list of names in the names array.
+// makes quantity of occurences, inertions, and deltins arrays with 
+// index #s  that correspond to those in the names array
+// NaN appears in arrays where a user has no insertions or deletion, for example
+var names = [];
+var quantity = [];
+var insertions = [];
+var deletions = [];
+var foundIt = false;
+for (i = 0; i < data.length; i ++) {
+  foundIt = false;
+  for (j = 0; j < names.length; j ++) {
+    if (data[i].name == names[j]) {
+        foundIt = true;
+        names[j].number += 1;
+        quantity[j] = quantity[j]+1;
+        insertions[j] = insertions[j] + parseInt(data[i].insertions);
+        deletions[j] = deletions[j] + parseInt(data[i].deletions);
+    }
+  }
+  if (foundIt == false) {
+    names.push(data[i].name);
+    quantity.push(1);
+    insertions.push(parseInt(data[i].insertions));
+    deletions.push(parseInt(data[i].deletions));
+  }
+}
+
+console.log(names);
+console.log(quantity);
+console.log(insertions);
+console.log(deletions);
+
+document.getElementById("result").innerHTML = names;
+//  end of additions 25 April
+
+
+
   var g = svg.selectAll(".arc")
       .data(pie(data))
     .enter().append("g")
