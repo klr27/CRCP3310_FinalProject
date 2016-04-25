@@ -10,7 +10,7 @@ var nameArray = [];
 //    }
 //});
 
-d3.text("foo2.csv", function(data) {
+d3.text("foo.csv", function(data) {
 
 var parsedCSV = d3.csv.parseRows(data);
 
