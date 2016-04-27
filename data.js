@@ -5,13 +5,22 @@ const INSERT = 2;
 const DELETE = 3;
 
 //template for basic user
-//function User(name, insertions, deletions) {
-//	this.name = name;
-//	this.insertions = insertions;
-//	this.deletions = deletions;
-//	//insertion object array
-//	//deletion object array
-//}
+function User(user, totalCommits, changes, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) {
+  this.user = user;
+  this.totalCommits = totalCommits;
+  this.jan = jan;
+  this.feb = feb;
+  this.mar = mar;
+  this.apr = apr;
+  this.may = may;
+  this.jun = jun;
+  this.jul = jul;
+  this.aug = aug;
+  this.sep = sep;
+  this.oct = oct;
+  this.nov = nov;
+  this.dec = dec; 
+}
 
 //template for change object
 //function Change(number, year, month)
