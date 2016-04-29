@@ -258,9 +258,33 @@ for (i = 1; i < 10; i ++) {
     counter = counter + 1;
 }
 console.log(commitData);
+
+var chart = circularHeatChart()
+    .segmentHeight(20)
+    .innerRadius(50)
+    .numSegments(12)
+    .range(["white", "steelblue"])
+    .radialLabels(["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"])
+    .segmentLabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
+    .margin({top: 20, right: 20, bottom: 20, left: 20});
+
+d3.select('#chart1')
+    .selectAll('svg')
+    .data([commitData])
+    .enter()
+    .append('svg')
+    .style('width', '600px')
+    .style('height', '600px')
+    .call(chart);
 //return commitData;
 }
 
+var userNames = [];
+counter = 0;
+for (i = 0; i < allUsers.length; i ++) {
+    userNames[counter] = allUsers[i].userName;
+    counter = counter + 1;
+}
 
 
 var userString = "<select id=\'whichUser\'>";
@@ -271,7 +295,7 @@ for (i = 0; i < allUsers.length; i ++) {
 userString = userString + "</select>";
 console.log(userString);
 document.getElementById("userList").innerHTML = userString;
-document.getElementById("whichUser").onClick=populate(whichUser.value);
+document.getElementById("whichUser").onchange = function() { populate(this.value);};
 
 window.addEventListener('load', populate(0), false );
 
@@ -294,5 +318,33 @@ d3.select('#chart1')
     .style('width', '600px')
     .style('height', '600px')
     .call(chart);
+
+var outerRadius = 230;
+var innerRadius = [];
+for (i = 0; i < allUsers.length - 1; i ++) {
+    if (allUsers[i + 1].totalCommits > 100) {
+        innerRadius[i] = 0;
+    }
+    else {
+        var commits = allUsers[i + 1].totalCommits;
+        innerRadius[i] = ((120/99) * (commits - 1));
+    }
+}
+var arcs = [];
+for (i = 0; i < allUsers.length - 1; i ++) {
+    arcs[i] = d3.svg.arc()
+                .innerRadius(innerRadius[i])
+                .outerRadius(outerRadius)
+                .startAngle(i * 0.0714)
+                .endAngle((i * 0.0714) + 0.0714);
+//                .attr("transform", "translate(250, 400)");
+}
+
+var svg = d3.select("#chart2")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 800)
+
+
 
 });
