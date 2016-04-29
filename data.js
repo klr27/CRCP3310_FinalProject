@@ -8,7 +8,7 @@ const DELETE = 3;
 function User(user, totalCommits, changes, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) {
   this.user = user;
   this.totalCommits = totalCommits;
-  this.jan = jan;  //each month is 9 element array all, 2008,...2016
+  this.jan = jan;  //each month is 9 element array all, 2008,...2016  insertions+deletions
   this.feb = feb;
   this.mar = mar;
   this.apr = apr;
