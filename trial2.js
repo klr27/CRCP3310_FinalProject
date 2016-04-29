@@ -32,123 +32,170 @@ for (i = 0; i < data.length; i ++) { // step through each line in csv
     if (data[i].name == allUsers[j].userName) {  // if the name is exists
         foundIt = true;  // set flag
         allUsers[j].totalCommits = parseInt(allUsers[j].totalCommits) + 1;  // increase commit counter for that user
-//        whichMonth = data[i].month;  
+        allUsers[0].totalCommits = parseInt(allUsers[0].totalCommits) + 1;  // increase commit counter for 'all users'
         switch (whichMonth) {
             case "Jan":
                 allUsers[j].janArray[0] = parseInt(allUsers[j].janArray[0]) + commitments;
                 allUsers[j].janArray[yearIndex] = parseInt(allUsers[j].janArray[yearIndex]) + commitments;
+                allUsers[0].janArray[0] = parseInt(allUsers[0].janArray[0]) + commitments;
+                allUsers[0].janArray[yearIndex] = parseInt(allUsers[0].janArray[yearIndex]) + commitments;
                 break;
             case "Feb":
                 allUsers[j].febArray[0] = allUsers[j].febArray[0] + parseInt(commitments);
                 allUsers[j].febArray[yearIndex] = allUsers[j].febArray[yearIndex] + parseInt(commitments);
+                allUsers[0].febArray[0] = parseInt(allUsers[0].febArray[0]) + commitments;
+                allUsers[0].febArray[yearIndex] = parseInt(allUsers[0].febArray[yearIndex]) + commitments;
                 break;
             case "Mar":
                 allUsers[j].marArray[0] = parseInt(allUsers[j].marArray[0]) + commitments;
                 allUsers[j].marArray[yearIndex] = parseInt(allUsers[j].marArray[yearIndex]) + commitments;
+                allUsers[0].marArray[0] = parseInt(allUsers[0].marArray[0]) + commitments;
+                allUsers[0].marArray[yearIndex] = parseInt(allUsers[0].marArray[yearIndex]) + commitments;
                 break;
             case "Apr":
                 allUsers[j].aprArray[0] = parseInt(allUsers[j].aprArray[0]) + commitments;
                 allUsers[j].aprArray[yearIndex] = parseInt(allUsers[j].aprArray[yearIndex]) + commitments;
+                allUsers[0].aprArray[0] = parseInt(allUsers[0].aprArray[0]) + commitments;
+                allUsers[0].aprArray[yearIndex] = parseInt(allUsers[0].aprArray[yearIndex]) + commitments;
                 break;
             case "May":
                 allUsers[j].mayArray[0] = parseInt(allUsers[j].mayArray[0]) + commitments;
                 allUsers[j].mayArray[yearIndex] = parseInt(allUsers[j].mayArray[yearIndex]) + commitments;
+                allUsers[0].mayArray[0] = parseInt(allUsers[0].mayArray[0]) + commitments;
+                allUsers[0].mayArray[yearIndex] = parseInt(allUsers[0].mayArray[yearIndex]) + commitments;
                 break;
             case "Jun":
                 allUsers[j].junArray[0] = parseInt(allUsers[j].junArray[0]) + commitments;
                 allUsers[j].junArray[yearIndex] = parseInt(allUsers[j].junArray[yearIndex]) + commitments;
+                allUsers[0].junArray[0] = parseInt(allUsers[0].junArray[0]) + commitments;
+                allUsers[0].junArray[yearIndex] = parseInt(allUsers[0].junArray[yearIndex]) + commitments;
                 break;
             case "Jul":
                 allUsers[j].julArray[0] = parseInt(allUsers[j].julArray[0]) + commitments;
                 allUsers[j].julArray[yearIndex] = parseInt(allUsers[j].julArray[yearIndex]) + commitments;
+                allUsers[0].julArray[0] = parseInt(allUsers[0].julArray[0]) + commitments;
+                allUsers[0].julArray[yearIndex] = parseInt(allUsers[0].julArray[yearIndex]) + commitments;
                 break;
             case "Aug":
                 allUsers[j].augArray[0] = parseInt(allUsers[j].augArray[0]) + commitments;
                 allUsers[j].augArray[yearIndex] = parseInt(allUsers[j].augArray[yearIndex]) + commitments;
+                allUsers[0].augArray[0] = parseInt(allUsers[0].augArray[0]) + commitments;
+                allUsers[0].augArray[yearIndex] = parseInt(allUsers[0].augArray[yearIndex]) + commitments;
                 break;
             case "Sep":
                 allUsers[j].sepArray[0] = parseInt(allUsers[j].sepArray[0]) + commitments;
                 allUsers[j].sepArray[yearIndex] = parseInt(allUsers[j].sepArray[yearIndex]) + commitments;
+                allUsers[0].sepArray[0] = parseInt(allUsers[0].sepArray[0]) + commitments;
+                allUsers[0].sepArray[yearIndex] = parseInt(allUsers[0].sepArray[yearIndex]) + commitments;
                 break;
             case "Oct":
                 allUsers[j].octArray[0] = parseInt(allUsers[j].octArray[0]) + commitments;
                 allUsers[j].octArray[yearIndex] = parseInt(allUsers[j].octArray[yearIndex]) + commitments;
+                allUsers[0].octArray[0] = parseInt(allUsers[0].octArray[0]) + commitments;
+                allUsers[0].octArray[yearIndex] = parseInt(allUsers[0].octArray[yearIndex]) + commitments;
                 break;
             case "Nov":
                 allUsers[j].novArray[0] = parseInt(allUsers[j].novArray[0]) + commitments;
                 allUsers[j].novArray[yearIndex] = parseInt(allUsers[j].novArray[yearIndex]) + commitments;
+                allUsers[0].novArray[0] = parseInt(allUsers[0].novArray[0]) + commitments;
+                allUsers[0].novArray[yearIndex] = parseInt(allUsers[0].novArray[yearIndex]) + commitments;
                 break;
             case "Dec":
                 allUsers[j].decArray[0] = parseInt(allUsers[j].decArray[0]) + commitments;
                 allUsers[j].decArray[yearIndex] = parseInt(allUsers[j].decArray[yearIndex]) + commitments;
+                allUsers[0].decArray[0] = parseInt(allUsers[0].decArray[0]) + commitments;
+                allUsers[0].decArray[yearIndex] = parseInt(allUsers[0].decArray[yearIndex]) + commitments;
                 break;
             }
         }
     }
 if (foundIt == false) {
-    console.log("New user - " + data[i].name)
     allUsers[userCount] = new UserView(data[i].name, 1,  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-//  whichMonth = data[i].month;  // this works
-        switch (whichMonth) {
+    allUsers[0].totalCommits = parseInt(allUsers[0].totalCommits) + 1; 
+            switch (whichMonth) {
             case "Jan":
                 allUsers[userCount].janArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].janArray[0] = commitments;
                 allUsers[userCount].janArray[yearIndex] = commitments;
+                allUsers[0].janArray[yearIndex] = parseInt(allUsers[0].janArray[yearIndex]) + commitments;
+                allUsers[0].janArray[0] = parseInt(allUsers[0].janArray[0]) + commitments;
                 break;
             case "Feb":
                 allUsers[userCount].febArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].febArray[0] = commitments;
                 allUsers[userCount].febArray[yearIndex] = commitments;
+                allUsers[0].febArray[yearIndex] = parseInt(allUsers[0].febArray[yearIndex]) + commitments;
+                allUsers[0].febArray[0] = parseInt(allUsers[0].febArray[0]) + commitments;
                 break;
             case "Mar":
                 allUsers[userCount].marArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].marArray[0] = commitments;
                 allUsers[userCount].marArray[yearIndex] = commitments;
+                allUsers[0].marArray[yearIndex] = parseInt(allUsers[0].marArray[yearIndex]) + commitments;
+                allUsers[0].marArray[0] = parseInt(allUsers[0].marArray[0]) + commitments;
                 break;
             case "Apr":
                 allUsers[userCount].aprArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].aprArray[0] = commitments;
                 allUsers[userCount].aprArray[yearIndex] = commitments;
+                allUsers[0].aprArray[yearIndex] = parseInt(allUsers[0].aprArray[yearIndex]) + commitments;
+                allUsers[0].aprArray[0] = parseInt(allUsers[0].aprArray[0]) + commitments;
                 break;
             case "May":
                 allUsers[userCount].mayArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].mayArray[0] = commitments;
                 allUsers[userCount].mayArray[yearIndex] = commitments;
+                allUsers[0].mayArray[yearIndex] = parseInt(allUsers[0].mayArray[yearIndex]) + commitments;
+                allUsers[0].mayArray[0] = parseInt(allUsers[0].mayArray[0]) + commitments;
                 break;
             case "Jun":
                 allUsers[userCount].junArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].junArray[0] = commitments;
                 allUsers[userCount].junArray[yearIndex] = commitments;
+                allUsers[0].junArray[yearIndex] = parseInt(allUsers[0].junArray[yearIndex]) + commitments;
+                allUsers[0].junArray[0] = parseInt(allUsers[0].junArray[0]) + commitments;
                 break;
             case "Jul":
                 allUsers[userCount].julArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].julArray[0] = commitments;
                 allUsers[userCount].julArray[yearIndex] = commitments;
+                allUsers[0].julArray[yearIndex] = parseInt(allUsers[0].julArray[yearIndex]) + commitments;
+                allUsers[0].julArray[0] = parseInt(allUsers[0].julArray[0]) + commitments;
                 break;
             case "Aug":
                 allUsers[userCount].augArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].augArray[0] = commitments;
                 allUsers[userCount].augArray[yearIndex] = commitments;
+                allUsers[0].augArray[yearIndex] = parseInt(allUsers[0].augArray[yearIndex]) + commitments;
+                allUsers[0].augArray[0] = parseInt(allUsers[0].augArray[0]) + commitments;
                 break;
             case "Sep":
                 allUsers[userCount].sepArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].sepArray[0] = commitments;
                 allUsers[userCount].sepArray[yearIndex] = commitments;
+                allUsers[0].sepArray[yearIndex] = parseInt(allUsers[0].sepArray[yearIndex]) + commitments;
+                allUsers[0].sepArray[0] = parseInt(allUsers[0].sepArray[0]) + commitments;
                 break;
             case "Oct":
                 allUsers[userCount].octArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].octArray[0] = commitments;
                 allUsers[userCount].octArray[yearIndex] = commitments;
+                allUsers[0].octArray[yearIndex] = parseInt(allUsers[0].octArray[yearIndex]) + commitments;
+                allUsers[0].octArray[0] = parseInt(allUsers[0].octArray[0]) + commitments;
                 break;
             case "Nov":
                 allUsers[userCount].novArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].novArray[0] = commitments;
                 allUsers[userCount].novArray[yearIndex] = commitments;
+                allUsers[0].novArray[yearIndex] = parseInt(allUsers[0].novArray[yearIndex]) + commitments;
+                allUsers[0].novArray[0] = parseInt(allUsers[0].novArray[0]) + commitments;
                 break;
             case "Dec":
                 allUsers[userCount].decArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 allUsers[userCount].decArray[0] = commitments;
                 allUsers[userCount].decArray[yearIndex] = commitments;
+                allUsers[0].decArray[yearIndex] = parseInt(allUsers[0].decArray[yearIndex]) + commitments;
+                allUsers[0].decArray[0] = parseInt(allUsers[0].decArray[0]) + commitments;
                 break;
             }
         userCount = userCount + 1;
@@ -166,9 +213,9 @@ for(var i = 1980; i < 2011; i++)
 
 /* Create the chart */
 var chart = circularHeatChart()
-    .segmentHeight(15)
+    .segmentHeight(25)
     .innerRadius(125)
-    .numSegments(12)
+    .numSegments(25)
     .domain([50, 200])
     .range(['white', 'blue'])
     .segmentLabels(months)
