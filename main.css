@@ -6,29 +6,15 @@ body {
   background-color: gray;
 }
 
-#example {
-	width: 800;
-	height: 800;
-	color: blue;
-}
-
-#result {
-	width: 500;
-	height: 500;
+#chart1 {
+	width: 800px;
+	height: 800px;
 	color: gray;
 }
 
-#pageJumps {
-	font-family: furore;
-	font-size: 22px;
-	text-align: center;
+#chart2 {
+	width: 500px;
+	height: 500px;
+	color: gray;
 }
 
-.arc text {
-  font: 10px sans-serif;
-  text-anchor: middle;
-}
-
-.arc path {
-  stroke: #fff;
-}
