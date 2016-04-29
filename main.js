@@ -263,20 +263,15 @@ console.log(commitData);
 
 
 
-var userString = "";
+var userString = "<select id=\'whichUser\'>";
 for (i = 0; i < allUsers.length; i ++) {
-    userString = userString + "<button id=\'user" + i + "\' type=\'button\' value=\'" + i + "\'>" + allUsers[i].userName + "</button>";
+    userString = userString + "<option value=\'" + i + "\'>" + allUsers[i].userName + "</option>";
+//    userString = userString + "<button id=\'user" + i + "\' type=\'button\' value=\'" + i + "\'>" + allUsers[i].userName + "</button>";
 }
-
+userString = userString + "</select>";
 console.log(userString);
 document.getElementById("userList").innerHTML = userString;
-
-var buttonString;
-for (i = 0; i < allUsers.length; i ++) {
-    buttonString = "user" + i;
-    console.log(buttonString);
-    document.getElementById(buttonString).addEventListener("click", function(){ populate(this.value); });
-}
+document.getElementById("whichUser").onClick=populate(whichUser.value);
 
 window.addEventListener('load', populate(0), false );
 
