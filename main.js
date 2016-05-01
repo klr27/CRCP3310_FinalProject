@@ -280,11 +280,14 @@ d3.select('#chart1')
 }
 
 var userNames = [];
+var commits = [];
 counter = 0;
 for (i = 0; i < allUsers.length; i ++) {
     userNames[counter] = allUsers[i].userName;
+    commits[counter] = allUsers[i].totalCommits;
     counter = counter + 1;
 }
+
 
 
 var userString = "<select id=\'whichUser\'>";
@@ -318,7 +321,7 @@ d3.select('#chart1')
     .style('width', '600px')
     .style('height', '600px')
     .call(chart);
-
+/*
 var outerRadius = 230;
 var innerRadius = [];
 for (i = 0; i < allUsers.length - 1; i ++) {
@@ -344,7 +347,51 @@ var svg = d3.select("#chart2")
             .append("svg")
             .attr("width", 500)
             .attr("height", 800)
+*/
 
+    var width = 600,
+    height = 500,
+    radius = 250;
 
+var color = d3.scale.category10();
 
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(75);
+
+var labelArc = d3.svg.arc()
+    .outerRadius(radius + 50)
+    .innerRadius(radius);
+
+var pie = d3.layout.pie()
+    .sort(d3.ascending)
+    .value(function(d) { return 10; });
+//    .value(function(d) { return d.population; });
+
+var svg = d3.select("body").selectAll("#chart2").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var rVal = 360 / userNames.length;
+var rotation = - (labelArc.centroid.endAngle - labelArc.centroid.startAngle) / 2 * (180 / Math.PI);
+
+  var g = svg.selectAll(".arc")
+      .data(pie(userNames))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+//.attr("transform", function(d, i) {
+//    return "rotate(" + (pie(d, i).endAngle - pie(d, i).startAngle) / 2 * (180 / Math.PI) + ")";
+//})
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data; });
+    
 });
