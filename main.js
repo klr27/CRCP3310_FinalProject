@@ -258,7 +258,7 @@ var counter = 0;
   }
   console.log(allUsers[which].userName);
   console.log(commitData);
-  render2(commitData);
+ // render2(commitData);
 }
 
 var userNames = [];
@@ -270,10 +270,9 @@ for (i = 0; i < allUsers.length; i ++) {
     counter = counter + 1;
 }
 
-//window.addEventListener('load', populate(0), false );
+window.addEventListener('load', populate(0), false );
 
 // chart 2
-function render2(dataSet) {
 var chart = circularHeatChart()
     .segmentHeight(16)
     .innerRadius(50)
@@ -286,11 +285,23 @@ var chart = circularHeatChart()
 
 d3.select('#chart2')
     .selectAll('svg')
-    .data([dataSet])
+    .data([commitData])
     .enter()
     .append('svg')
     .style('width', '500px')
     .style('height', '625px')
+    .style('stroke', 'blue')
+    .call(chart);
+
+function renderNew(dataSet) {
+var selection =  d3.select('#chart2')
+    .selectAll('svg')
+    .data([dataSet])
+ //   .enter()
+ //   .append('svg')
+ //   .style('width', '500px')
+ //   .style('height', '625px')
+ //   .style('stroke', "blue")
     .call(chart);
 }
 
@@ -311,7 +322,6 @@ var labelArc = d3.svg.arc()
     .innerRadius(75);
 
 var pie = d3.layout.pie()
-    .sort(d3.ascending)
     .value(function(d) { return 10; });
 
 var svg = d3.select("body").selectAll("#chart1").append("svg")
@@ -331,10 +341,10 @@ g.append("path")
     .attr("d", arc)
     .style("fill", function(d) { return color(d.data); })
     .style("stroke", "black")
-    .on("mouseover", function(d, i) { populate(i); });
+    .on("mouseover", function(d, i) { populate(i); renderNew(commitData);});
 
 g.append("text")
-    .attr("transform", function(d, i) { return " rotate(" + ((i * (rVal)) - 76) + ")"+ " translate(" + 200 + ")"; }) 
+    .attr("transform", function(d, i) { return " rotate(" + ((i * (rVal)) - 88) + ")"+ " translate(" + 200 + ")"; }) 
     .attr("dy", ".35em")
     .style("text-anchor", "start")
     .text(function(d) { return d.data; });  
