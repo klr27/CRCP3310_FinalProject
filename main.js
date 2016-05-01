@@ -351,7 +351,7 @@ var svg = d3.select("#chart2")
 
     var width = 600,
     height = 500,
-    radius = 250;
+    radius = 210;
 
 var color = d3.scale.category10();
 
@@ -360,12 +360,12 @@ var arc = d3.svg.arc()
     .innerRadius(75);
 
 var labelArc = d3.svg.arc()
-    .outerRadius(radius + 50)
-    .innerRadius(radius);
+    .outerRadius(radius - 10)
+    .innerRadius(75);
 
 var pie = d3.layout.pie()
     .sort(d3.ascending)
-    .value(function(d) { return 10; });
+    .value(function(d) { return 100; });
 //    .value(function(d) { return d.population; });
 
 var svg = d3.select("body").selectAll("#chart2").append("svg")
@@ -374,8 +374,7 @@ var svg = d3.select("body").selectAll("#chart2").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var rVal = 360 / userNames.length;
-var rotation = - (labelArc.centroid.endAngle - labelArc.centroid.startAngle) / 2 * (180 / Math.PI);
+var rVal = (360 / userNames.length);
 
   var g = svg.selectAll(".arc")
       .data(pie(userNames))
@@ -384,14 +383,13 @@ var rotation = - (labelArc.centroid.endAngle - labelArc.centroid.startAngle) / 2
 
   g.append("path")
       .attr("d", arc)
-      .style("fill", function(d) { return color(d.data); });
+      .style("fill", function(d) { return color(d.data); })
+      .style("stroke", "black");
 
   g.append("text")
-      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
-//.attr("transform", function(d, i) {
-//    return "rotate(" + (pie(d, i).endAngle - pie(d, i).startAngle) / 2 * (180 / Math.PI) + ")";
-//})
+      .attr("transform", function(d, i) { return " rotate(" + ((i * (rVal)) + (rVal / 2.6)) + ")"+ " translate(" + 200 + ")"; }) 
       .attr("dy", ".35em")
+      .style("text-anchor", "start")
       .text(function(d) { return d.data; });
     
 });
