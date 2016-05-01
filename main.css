@@ -6,15 +6,8 @@ body {
   background-color: gray;
 }
 
-#chart1 {
-	width: 800px;
-	height: 800px;
-	color: gray;
+#titleArea {
+	font-size: 24px;
+	text-align: center;
+	color: blue;
 }
-
-#chart2 {
-	width: 500px;
-	height: 500px;
-	color: gray;
-}
-
