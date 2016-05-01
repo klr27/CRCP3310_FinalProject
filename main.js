@@ -256,7 +256,9 @@ var counter = 0;
       commitData[counter] = allUsers[which].decArray[i];
       counter = counter + 1;
   }
+  console.log(allUsers[which].userName);
   console.log(commitData);
+  render2(commitData);
 }
 
 var userNames = [];
@@ -268,9 +270,10 @@ for (i = 0; i < allUsers.length; i ++) {
     counter = counter + 1;
 }
 
-window.addEventListener('load', populate(0), false );
+//window.addEventListener('load', populate(0), false );
 
 // chart 2
+function render2(dataSet) {
 var chart = circularHeatChart()
     .segmentHeight(16)
     .innerRadius(50)
@@ -283,19 +286,21 @@ var chart = circularHeatChart()
 
 d3.select('#chart2')
     .selectAll('svg')
-    .data([commitData])
+    .data([dataSet])
     .enter()
     .append('svg')
     .style('width', '500px')
     .style('height', '625px')
     .call(chart);
+}
+
 
 // chart 1:
 var width = 700,
     height = 800,
     radius = 210;
 
-var color = d3.scale.category10();
+var color = d3.scale.category20b();
 
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)
@@ -325,11 +330,14 @@ var g = svg.selectAll(".arc")
 g.append("path")
     .attr("d", arc)
     .style("fill", function(d) { return color(d.data); })
-    .style("stroke", "black");
+    .style("stroke", "black")
+    .on("mouseover", function(d, i) { populate(i); });
 
 g.append("text")
-    .attr("transform", function(d, i) { return " rotate(" + ((i * (rVal)) + (rVal / 2.6)) + ")"+ " translate(" + 200 + ")"; }) 
+    .attr("transform", function(d, i) { return " rotate(" + ((i * (rVal)) - 76) + ")"+ " translate(" + 200 + ")"; }) 
     .attr("dy", ".35em")
     .style("text-anchor", "start")
     .text(function(d) { return d.data; });  
+
+
 });
