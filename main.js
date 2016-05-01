@@ -277,7 +277,7 @@ var chart = circularHeatChart()
     .segmentHeight(16)
     .innerRadius(50)
     .numSegments(12)
-    .range(["white", "steelblue"])
+    .range(["lightgray", "steelblue"])
     .radialLabels(["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"])
     .segmentLabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
     .margin({top: 20, right: 20, bottom: 20, left: 20});
@@ -290,7 +290,7 @@ d3.select('#chart2')
     .append('svg')
     .style('width', '500px')
     .style('height', '625px')
-    .style('stroke', 'blue')
+    .style('stroke', 'black')
     .call(chart);
 
 function renderNew(dataSet) {
@@ -311,7 +311,7 @@ var width = 700,
     height = 800,
     radius = 210;
 
-var color = d3.scale.category20b();
+var color = d3.scale.category20c();
 
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)
